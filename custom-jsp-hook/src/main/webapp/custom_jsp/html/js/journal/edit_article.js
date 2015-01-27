@@ -9,13 +9,18 @@ initSort();
  */
 function initSort() {
 	YUI().use('node', 'transition', function (Y) {
-		// Capture clicks on up/down button
-		Y.one('.lfr-ddm-container').delegate('click', moveDown, '.lfr-ddm-reorder-down-button');
-		Y.one('.lfr-ddm-container').delegate('click', moveUp, '.lfr-ddm-reorder-up-button');
+        var yDdmContainer = Y.one('.lfr-ddm-container');
+        if (yDdmContainer) {
+			// Capture clicks on up/down button
+            yDdmContainer.delegate('click', moveDown, '.lfr-ddm-reorder-down-button');
+            yDdmContainer.delegate('click', moveUp, '.lfr-ddm-reorder-up-button');
 
-		// Capture clicks on anything where we need to redraw the arrows.
-		Y.one('.lfr-ddm-container').delegate('click', updateArrowsAndButtons, '.lfr-ddm-repeatable-add-button');
-		Y.one('.lfr-ddm-container').delegate('click', updateArrowsAndButtons, '.lfr-ddm-repeatable-delete-button');
+            // Capture clicks on anything where we need to redraw the arrows.
+            yDdmContainer.delegate('click', updateArrowsAndButtons, '.lfr-ddm-repeatable-add-button');
+            yDdmContainer.delegate('click', updateArrowsAndButtons, '.lfr-ddm-repeatable-delete-button');
+            updateArrowsAndButtons();
+        }
+
 	});
 	updateArrowsAndButtons();
 }
