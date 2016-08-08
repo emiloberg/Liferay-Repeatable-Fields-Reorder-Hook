@@ -1,4 +1,4 @@
-var fieldWrapperSelector = '.control-group.field-wrapper';
+var fieldWrapperSelector = '#_15_content .control-group.field-wrapper';
 var fieldsDisplaySelector = '#_15__fieldsDisplay';
 
 initSort();
